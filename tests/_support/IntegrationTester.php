@@ -16,12 +16,11 @@
  *
  * @SuppressWarnings(PHPMD)
 */
-class AcceptanceTester extends \Codeception\Actor
+class IntegrationTester extends \Codeception\Actor
 {
-    use _generated\AcceptanceTesterActions;
+    use _generated\IntegrationTesterActions;
 
    /**
     * Define custom actions here
     */
-
 }

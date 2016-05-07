@@ -11,6 +11,5 @@ namespace app\Customer;
 
 interface CustomerDataProviderInterface
 {
-
-    public function getCustomerLocationID($customerID);
+    public function getCustomerUsingID($customerID);
 }

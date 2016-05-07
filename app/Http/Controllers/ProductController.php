@@ -17,7 +17,6 @@ class ProductController extends Controller
 
         $productCollection = new CatalogueService(new CatalogueDataProvider());
 
-        dd($productCollection->getProductsByLocation('LIVERPOOL'));
         return view('product.index');
     }
 }

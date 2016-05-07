@@ -23,8 +23,8 @@
         "psr-4": {
             "App\\": "app/",
             "App\\Product\\": "app/Product",
-            "App\\Customer\\": "app/Customer"
-
+            "App\\Customer\\": "app/Customer",
+            "App\\Pages\\": "app/Pages"
 
         }
     },

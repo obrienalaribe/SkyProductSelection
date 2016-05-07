@@ -28,38 +28,34 @@
         </div>
         <hr>
 
-        <div class="col-md-4">
-            <section>
-                <h2>Sports</h2>
-
-                <form id="sports-form">
+        <form id="product-form">
+            <div class="col-md-4">
+                <section>
+                    <h2>Sports</h2>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="sky-news"> Sky News
+                            <input type="checkbox" name="arsenal-tv"> Arsenal TV
                         </label>
                     </div>
 
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="sky-sports"> Sky Sports
+                            <input type="checkbox" name="chelsea-tv"> Chelsea TV
                         </label>
                     </div>
 
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="news"> News
+                            <input type="checkbox" name="liverpool-tv"> Liverpool TV
                         </label>
                     </div>
 
-                </form>
-            </section>
+                </section>
 
-        </div>
+            </div>
 
-
-        <div class="col-md-4">
-            <section>
-                <form id="news-form">
+            <div class="col-md-4">
+                <section>
                     <h2>News</h2>
 
                     <div class="checkbox">
@@ -79,26 +75,26 @@
                             <input type="checkbox" name="news"> News
                         </label>
                     </div>
-
-                </form>
-            </section>
+                </section>
 
 
-        </div>
-        <div class="col-md-4">
-            <h2>Basket</h2>
-            <button type="submit" class="btn btn-default">Checkout</button>
-        </div>
+            </div>
+            <div class="col-md-4">
+                <h2>Basket</h2>
+                <ul id="{{\App\Pages\ProductSelectionPage::$productBasketID}}">
+
+                </ul>
+                <button id="{{\App\Pages\ProductSelectionPage::$checkoutButtonID}}" type="submit" class="btn btn-default">Checkout</button>
+            </div>
+
+        </form>
+
     </div>
     <!--row end -->
 
     <hr>
 </div> <!-- /container -->
-
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
 </body>
 </html>

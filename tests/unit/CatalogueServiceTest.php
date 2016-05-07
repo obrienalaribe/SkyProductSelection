@@ -13,7 +13,7 @@ class CatalogueServiceTest extends \PHPUnit_Framework_TestCase
         $this->catalogueService = new CatalogueService(new CatalogueDataProvider());
     }
 
-    public function testRetrievingProductsByLocationID()
+    public function testGetBasicProductsWithProductsByLocation()
     {
         $productsInLondon = $this->catalogueService->getProductsByLocation('LONDON');
         $this->assertCount(4, $productsInLondon);

@@ -20,9 +20,9 @@
 
 ## Running tests suites
 
--run unit tests with ```vendor/bin/codecept run unit```
+- Run unit tests with ```vendor/bin/codecept run unit```
 
-- run integration test with ```vendor/bin/codecept run integration```
+- Run integration test with ```vendor/bin/codecept run integration```
 
 ## Acceptance Testing
 
@@ -38,7 +38,7 @@
 - You can set the customer ID in ProductController. Use ```123``` for a liverpool customer and ```321``` for london customer
 
 
-##Running all tests:
+##Running all test suites:
 
 - You can run all test suites with ```vendor/bin/codecept run```
 

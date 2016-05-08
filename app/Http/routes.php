@@ -15,3 +15,7 @@
 Route::get('/', [
     'as' => 'home', 'uses' => 'ProductController@index'
 ]);
+
+Route::post('/confirmation', [
+    'as' => 'confirm', 'uses' => 'ProductController@confirmation'
+]);

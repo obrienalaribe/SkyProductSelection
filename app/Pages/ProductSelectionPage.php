@@ -11,11 +11,8 @@ namespace App\Pages;
 
 class ProductSelectionPage
 {
-    static $arsenalTvElement = "arsenal-tv";
-    static $chelseaTvElement = "chelsea-tv";
-    static $liverpoolTvElement = "liverpool-tv";
-    static $skyNewsElement = "sky-news";
-    static $skySportsElement = "sky-sports";
-    static $checkoutButtonID = "#checkout";
-    static $productBasketID = "#basket";
+    static $skyNewsCheckbox = "//*[@id=\"product-form\"]/div[2]/section/div[1]/label/input";
+    static $skySportsNewsCheckbox = "//*[@id=\"product-form\"]/div[2]/section/div[2]/label/input";
+    static $skySportsNews = "//*[@id=\"sky_sports_news\"]";
+    static $skyNews = "//*[@id=\"sky_news\"]";
 }

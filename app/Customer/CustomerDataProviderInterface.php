@@ -6,8 +6,7 @@
  * Time: 1:52 AM
  */
 
-namespace app\Customer;
-
+namespace App\Customer;
 
 interface CustomerDataProviderInterface
 {

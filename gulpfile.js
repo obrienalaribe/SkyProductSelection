@@ -16,4 +16,5 @@ elixir(function(mix) {
 
     mix.copy('node_modules/bootstrap-sass/assets/fonts/', 'public/fonts');
     mix.copy('node_modules/bootstrap-sass/assets/javascripts/', 'public/js/bootstrap');
+    mix.copy('node_modules/jquery/dist', 'public/js/jquery');
 });

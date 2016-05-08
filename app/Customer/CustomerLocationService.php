@@ -18,14 +18,14 @@ class CustomerLocationService
 
     /**
      * CustomerLocationService constructor.
+     * @param CustomerDataProviderInterface $customerDataProvider
      */
     public function __construct(CustomerDataProviderInterface $customerDataProvider)
     {
         $this->customerDataProvider = $customerDataProvider;
     }
 
-
-    public function getLocationId($customerId)
+    public function getLocationIdOfCustomer($customerId)
     {
         $customer = $this->customerDataProvider->getCustomerUsingID($customerId);
 

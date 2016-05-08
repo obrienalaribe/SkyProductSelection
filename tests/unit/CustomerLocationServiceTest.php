@@ -9,17 +9,16 @@ class CustomerLocationServiceTest extends \PHPUnit_Framework_TestCase
     protected $customerLocationService;
 
     public function testExceptionThrownWithInvalidCustomerId(){
-        $customerLocationService = $this->getMock('CustomerLocationService', array('getClass', 'getLocationId'));
-        $customerLocationService->method('getLocationId')->willThrowException(new CustomerNotFoundException());
+        $customerLocationService = $this->getMock('CustomerLocationService', array('getClass', 'getLocationIdOfCustomer'));
+        $customerLocationService->method('getLocationIdOfCustomer')->willThrowException(new CustomerNotFoundException());
         $this->setExpectedException(CustomerNotFoundException::class, "There was a problem retrieving the customer information");
-        $customerLocationService->getLocationId(232);
-
+        $customerLocationService->getLocationIdOfCustomer(232);
     }
 
     public function testGetLocationIdUsingCustomerId()
     {
-        $customerLocationService = $this->getMock('CustomerLocationService', array('getClass', 'getLocationId'));
-        $customerLocationService->method('getLocationId')->willReturn('LIVERPOOL');
-        $this->assertEquals('LIVERPOOL', $customerLocationService->getLocationId(431));
+        $customerLocationService = $this->getMock('CustomerLocationService', array('getClass', 'getLocationIdOfCustomer'));
+        $customerLocationService->method('getLocationIdOfCustomer')->willReturn('LIVERPOOL');
+        $this->assertEquals('LIVERPOOL', $customerLocationService->getLocationIdOfCustomer(431));
     }
 }

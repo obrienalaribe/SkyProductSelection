@@ -15,7 +15,7 @@
 <body>
 
 <nav class="navbar navbar-static-top">
-    <a class="navbar-brand" href="#">BSKYB</a>
+    <a class="navbar-brand" href="{{route('home')}}">BSKYB</a>
 </nav>
 
 
@@ -28,28 +28,21 @@
         </div>
         <hr>
 
-        <form id="product-form">
+        <form id="product-form" method="post" action="{{route('confirm')}}">
+            {{csrf_field()}}
             <div class="col-md-4">
                 <section>
                     <h2>Sports</h2>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="arsenal-tv"> Arsenal TV
-                        </label>
-                    </div>
 
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="chelsea-tv"> Chelsea TV
-                        </label>
-                    </div>
+                    @foreach($sportsProducts as $product)
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" data-product="{{snake_case($product['Product'])}}" name="products[]"
+                                       value="{{$product['Product']}}"> {{$product['Product']}}
+                            </label>
+                        </div>
 
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="liverpool-tv"> Liverpool TV
-                        </label>
-                    </div>
-
+                    @endforeach
                 </section>
 
             </div>
@@ -58,33 +51,24 @@
                 <section>
                     <h2>News</h2>
 
-                    <div class="checkbox">
-                        <label>
-                            <input id="news" type="checkbox" name="sky-news"> Sky News
-                        </label>
-                    </div>
+                    @foreach($newsProducts as $product)
+                        <div class="checkbox">
+                            <label>
+                                <input data-product="{{snake_case($product['Product'])}}" type="checkbox" name="products[]"
+                                       value="{{$product['Product']}}"> {{$product['Product']}}
+                            </label>
+                        </div>
 
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="sky-sports"> Sky Sports
-                        </label>
-                    </div>
-
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="news"> News
-                        </label>
-                    </div>
+                    @endforeach
                 </section>
-
 
             </div>
             <div class="col-md-4">
-                <h2>Basket</h2>
-                <ul id="{{\App\Pages\ProductSelectionPage::$productBasketID}}">
-
-                </ul>
-                <button id="{{\App\Pages\ProductSelectionPage::$checkoutButtonID}}" type="submit" class="btn btn-default">Checkout</button>
+                <h3>Basket</h3>
+                <ul id="basket" class="list-group"></ul>
+                <button id="checkout" type="submit" class="btn btn-default disabled">
+                    Checkout
+                </button>
             </div>
 
         </form>
@@ -94,7 +78,16 @@
 
     <hr>
 </div> <!-- /container -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
+<script src="{{asset('js/jquery/jquery.min.js')}}"></script>
+<script>
+    $('input').click(function (event) {
+        $('#checkout').removeClass('disabled');
+        if (event.target.checked) {
+            $('#basket').append('<li id="' + event.target.getAttribute('data-product') + '" class="list-group-item">' + event.target.value + '</li>');
+        } else {
+            $('#' + event.target.getAttribute('data-product')).remove();
+        }
+    });
+</script>
 </body>
 </html>

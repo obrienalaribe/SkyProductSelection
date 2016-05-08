@@ -1,27 +1,40 @@
-# Laravel PHP Framework
+# Customer Product Selection App
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Get Started
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+- run ```composer install```
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+php artisan key:generate
 
-## Official Documentation
+start the application server:
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+php artisan serve
 
-## Contributing
+Visit: http://localhost:8000/
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
 
-## Security Vulnerabilities
+## Running tests suites
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+run unit tests: ./vendor/bin/codecept run unit
 
-## License
+run integration test: ./vendor/bin/codecept run integration
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+## Webpage Testing
+
+Test will run on firefox. To run acceptance test you need to start up selenium with this command:
+java -jar selenium-server-standalone-2.53.0.jar
+
+To stop selenium server from the browser use:
+http://localhost:4444/selenium-server/driver/?cmd=shutDownSeleniumServer
+
+To update the cookie for customer ID you can set this value in ProductController //123 for liverpool customer and 321 for london
+
+
+run all tests: ./vendor/bin/codecept run
+
+## Source code folders:
+
+Customer Module: app/Customer
+Product Module: app/Product
+Exceptions: app/Exceptions
+Controller: app/Http/Controllers (update customerId cookie here)

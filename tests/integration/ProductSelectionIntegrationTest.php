@@ -36,7 +36,7 @@ class ProductSelectionIntegrationTest extends \Codeception\TestCase\Test
 
     private function whenWeRetrieveTheLocationOfThisCustomer($customerId)
     {
-        return $this->customerLocationService->getLocationId($customerId);
+        return $this->customerLocationService->getLocationIdOfCustomer($customerId);
     }
 
     private function thenWeReceiveAProductCatalogueForTheirLocation($locationId)

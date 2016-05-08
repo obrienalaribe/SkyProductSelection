@@ -2,21 +2,54 @@
 
 namespace App\Http\Controllers;
 
-use App\Product\Catalogue\CatalogueDataProvider;
+use App\Customer\CustomerDataProvider;
+use App\Customer\CustomerLocationService;
 use App\Product\Catalogue\CatalogueService;
+use App\Product\ProductHelper;
+use Illuminate\Cookie\CookieJar;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
 class ProductController extends Controller
 {
+    private $catalogueService;
+    private $customerID;
+
     /**
-     * Handle Product Selection page
+     * ProductController constructor.
      */
-    public function index(){
+    public function __construct(CatalogueService $catalogueService, Request $request)
+    {
+        $this->catalogueService = $catalogueService;
+        $this->customerID = 321;
+    }
 
-        $productCollection = new CatalogueService(new CatalogueDataProvider());
+    /**
+     * Handle Product Selection
+     */
+    public function index(CustomerLocationService $customerLocationService)
+    {
 
-        return view('product.index');
+        $locationId = $customerLocationService->getLocationIdOfCustomer($this->customerID);
+        $products = $this->catalogueService->getProductsByLocation($locationId);
+
+        $productHelper = new ProductHelper($products);
+        $sportsProducts = $productHelper->filterByCategory('Sports');
+        $newsProducts = $productHelper->filterByCategory('News');
+
+        return response()->view('product.index', compact('sportsProducts', 'newsProducts'))->withCookie('customerId', $this->customerID, 100);
+    }
+
+    /**
+     * Handle Product Selection Confirmation
+     */
+    public function confirmation(Request $request)
+    {
+        $customerId = $request->cookie('customerId');
+
+        $selectedProducts = $request->input('products');
+
+        return view('product.confirmation', compact('selectedProducts', 'customerId'));
     }
 }

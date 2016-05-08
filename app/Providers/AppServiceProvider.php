@@ -13,6 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->app->bind('App\Product\Catalogue\CatalogueDataProviderInterface', 'App\Product\Catalogue\CatalogueDataProvider');
+        $this->app->bind('App\Customer\CustomerDataProviderInterface', 'App\Customer\CustomerDataProvider');
 
     }
 
